@@ -1,15 +1,25 @@
 'use client';
 
 import Link from 'next/link';
-import { useLogin } from './hooks/useLogin';
+import { useRegistro } from '@/app/hooks/useRegistro';
 
-export default function Home() {
-  const { form, handleChange, handleLogin } = useLogin();
+export default function Registro() {
+  const { form, handleChange, handleRegister } = useRegistro();
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Bem-vindo!</h1>
-      <form onSubmit={handleLogin} style={{ marginTop: '20px' }}>
+      <h1>Crie sua conta</h1>
+      <form onSubmit={handleRegister} style={{ marginTop: '20px' }}>
+        <div style={{ marginBottom: '10px' }}>
+          <input
+            type="text"
+            name="name" // 👈 essencial para handleChange
+            placeholder="Nome Completo"
+            value={form.name}
+            onChange={handleChange}
+            className="border p-2 rounded w-64 text-black"
+          />
+        </div>
         <div style={{ marginBottom: '10px' }}>
           <input
             type="text"
@@ -32,14 +42,14 @@ export default function Home() {
         </div>
         <button
           type="submit"
-          className="bg-blue-600 text-white rounded cursor-pointer hover:bg-blue-500 px-6 py-2"
+          className="bg-green-600 text-white rounded cursor-pointer hover:bg-green-500 px-6 py-2"
         >
-          Entrar
+          Cadastrar
         </button>
       </form>
       <div style={{ marginTop: '20px' }}>
-        <Link href="/registro" className="text-blue-500 hover:underline">
-          Não tem uma conta? Cadastre-se
+        <Link href="/" className="text-blue-500 hover:underline">
+          Já tem uma conta? Faça o login
         </Link>
       </div>
     </div>

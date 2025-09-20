@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-// Cria uma instância do Axios com a URL base do Spring boot sua API
+// A URL da API agora é lida da variável de ambiente
 const api = axios.create({
-  baseURL: 'http://localhost:8080/',
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
 export default api;

@@ -42,7 +42,6 @@ export function useFormularioProduto(id?: string) {
 
       api[method](url, produtoParaEnviar)
         .then(() => {
-    
           return Swal.fire('Sucesso', successMessage, 'success');
         })
         .then(() => {
@@ -50,7 +49,6 @@ export function useFormularioProduto(id?: string) {
           router.push('/produtos');
         })
         .catch((error) => {
-    
           console.error("Falha ao salvar o produto:", error);
           Swal.fire('Erro', 'Não foi possível salvar o produto.', 'error');
         });
